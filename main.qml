@@ -10,13 +10,16 @@ Window {
 
     property bool startAnim: false
 
+    Rectangle{
+        anchors.fill: parent
+        color: "red"
+    }
+
     SplashScreen{
         id:splash
     }
 
-    Button{
 
-    }
 
 //    Rectangle {
 //        id: rect

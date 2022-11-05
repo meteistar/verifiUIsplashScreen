@@ -5,6 +5,24 @@ import Font 1.0
 Item {
     id: root
     anchors.fill: parent
+    property bool startAnim: false
+
+    NumberAnimation on opacity {
+        id: destroyanim
+        running: startAnim
+
+        to: 0
+        duration: 1000
+
+        onRunningChanged: {
+            if (!running) {
+                console.log("Destroying...")
+
+                root.destroy();
+            }
+        }
+    }
+
     Image {
         id: background_dark
         source: "qrc:/assets/images/background_dark.png"
@@ -29,5 +47,21 @@ Item {
 
             anchors.centerIn: parent
         }
+
+        Button{
+            name: "Start"
+            anchors{
+                verticalCenter: parent.verticalCenter
+                right: parent.right
+                rightMargin: 20
+            }
+            onClicked: {
+                console.log("signal catched")
+                startAnim = true
+            }
+        }
+
+
     }
+
 }
