@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>assets/images/background_dark.png</file>
+    </qresource>
+</RCC>
