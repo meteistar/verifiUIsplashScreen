@@ -6,8 +6,11 @@ Item {
     width: roundRect.width
     height: roundRect.height
 
-    property alias name: buttonText.text
-    signal clicked
+    //property alias name: buttonText.text
+    signal startClicked
+    signal mapSurfaceClicked
+
+    state: "Start"
 
     Rectangle {
       id: roundRect
@@ -37,7 +40,16 @@ Item {
           }
           onClicked: {
               console.log("Button pressed...")
-              root.clicked()
+              if(root.state === "Start"){
+                  root.state = "MapSurface"
+                  startClicked()
+
+              }else if(root.state === "MapSurface"){
+                  root.state = "MapRoi"
+                  mapSurfaceClicked()
+              }
+
+
           }
       }
     }
@@ -66,5 +78,16 @@ Item {
       anchors.right : roundRect.right
 
     }
+
+    states: [
+        State {
+            name: "Start"
+            PropertyChanges { target: buttonText; text: "Start" }
+        },
+        State {
+            name: "MapSurface"
+            PropertyChanges { target: buttonText; text: "MapSurface" }
+        }
+    ]
 
 }

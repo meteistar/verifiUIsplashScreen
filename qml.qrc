@@ -13,5 +13,9 @@
         <file>assets/fonts/Atkinson_Hyperlegible/Atkinson-Hyperlegible-Regular-102.ttf</file>
         <file>SplashScreen.qml</file>
         <file>Button.qml</file>
+        <file>BottomBar.qml</file>
+        <file>ProgresDot.qml</file>
+        <file>ProgressLabel.qml</file>
+        <file>ProgressLink.qml</file>
     </qresource>
 </RCC>
