@@ -2,5 +2,16 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>assets/images/background_dark.png</file>
+        <file>assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Bold.ttf</file>
+        <file>assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-BoldItalic.ttf</file>
+        <file>assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Italic.ttf</file>
+        <file>assets/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Regular.ttf</file>
+        <file>Singletons/Font.qml</file>
+        <file>assets/fonts/Atkinson_Hyperlegible/Atkinson-Hyperlegible-Bold-102.ttf</file>
+        <file>assets/fonts/Atkinson_Hyperlegible/Atkinson-Hyperlegible-BoldItalic-102.ttf</file>
+        <file>assets/fonts/Atkinson_Hyperlegible/Atkinson-Hyperlegible-Italic-102.ttf</file>
+        <file>assets/fonts/Atkinson_Hyperlegible/Atkinson-Hyperlegible-Regular-102.ttf</file>
+        <file>SplashScreen.qml</file>
+        <file>Button.qml</file>
     </qresource>
 </RCC>

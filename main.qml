@@ -3,51 +3,59 @@ import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 
 Window {
-    width: 640
-    height: 480
+    width: 600
+    height: 400
     visible: true
     title: qsTr("Hello World")
 
     property bool startAnim: false
 
-    Rectangle {
-        id: rect
-        anchors.fill: parent
-        color: "red"
-
-        NumberAnimation on opacity {
-            id: destroyanim
-            running: startAnim
-
-            to: 0
-            duration: 1000
-
-            onRunningChanged: {
-                if (!running) {
-                    console.log("Destroying...")
-
-                    rect.destroy();
-                }
-            }
-        }
-
-
+    SplashScreen{
+        id:splash
     }
 
     Button{
-        id: button
-        text: "Start Anim"
-        onClicked: {
-            startAnim = true
-            if(rect === null){
-                console.log("rect null")
-            }
 
-            console.log(rect.width)
-            //rect1.z = 0
-            //rect2.z = 10
-        }
     }
+
+//    Rectangle {
+//        id: rect
+//        anchors.fill: parent
+//        color: "red"
+
+//        NumberAnimation on opacity {
+//            id: destroyanim
+//            running: startAnim
+
+//            to: 0
+//            duration: 1000
+
+//            onRunningChanged: {
+//                if (!running) {
+//                    console.log("Destroying...")
+
+//                    rect.destroy();
+//                }
+//            }
+//        }
+
+
+//    }
+
+//    Button{
+//        id: button
+//        text: "Start Anim"
+//        onClicked: {
+//            startAnim = true
+//            if(rect === null){
+//                console.log("rect null")
+//            }
+
+//            console.log(rect.width)
+//            //rect1.z = 0
+//            //rect2.z = 10
+//        }
+//    }
 //    Rectangle{
 //        id:rect1
 //        z: 10

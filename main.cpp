@@ -9,7 +9,12 @@ int main(int argc, char *argv[])
 #endif
     QGuiApplication app(argc, argv);
 
+
+
     QQmlApplicationEngine engine;
+
+    qmlRegisterSingletonType(QUrl("qrc:/Singletons/Font.qml"), "Font",1,0,"Font");
+
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
