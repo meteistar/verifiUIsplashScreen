@@ -9,7 +9,6 @@ Rectangle{
     state: "unfilled"
 
     onStateChanged: {
-        console.log("dot icinde" + state)
     }
 
     //TODO make it singleton

@@ -17,6 +17,17 @@ Item {
         }
     }
 
+//    Rectangle{
+//        id: innerRef
+//        width: 100 ; height: 6
+//        color: Qt.rgba(255, 255, 255, 0.5)
+//        anchors{
+//            left: rect.left
+//            leftMargin: 612
+//            top: rect.top
+//            topMargin: 264
+//        }
+//    }
     Rectangle{
         width: 240 ; height: 10
         color: Qt.rgba(255, 255, 255, 0.5)

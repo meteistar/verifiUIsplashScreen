@@ -4,6 +4,8 @@ import QtQuick.Controls 2.15
 Rectangle {
     id: root
 
+    property alias text: label.text
+
     property bool animStart: false
 
     width: 250 ; height: 316
@@ -26,7 +28,7 @@ Rectangle {
     }
 
     Label{
-        id: text
+        id: label
         text: "<strong>Robot is in free-<br>drive mode.<br></strong><br> Use your hand to <br>position the camera <br>so that the entire<br> workpiece is in view <br>and centered"
         width: 170 ; height: 174
         font.pixelSize: 18

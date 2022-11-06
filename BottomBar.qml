@@ -6,6 +6,7 @@ Rectangle {
 
     signal startClicked
 
+    //visible: state == "MapSurface" ? false : true
 
     state: "Start"
 
@@ -56,10 +57,11 @@ Rectangle {
     ProgresDot{
         id: mapSurfaceDot
 
+        visible: menuButton.state != "Start"
         state: {
-            if(menuButton.state == "DefineRoi" ||
+            if( menuButton.state == "MapSurface" || menuButton.state == "DefineRoi" ||
                     menuButton.state == "MapRoi" || menuButton.state == "RobotSettings" ||
-                    menuButton.state == "" || menuButton.state == "DefineRoi")
+                    menuButton.state == "SelectModality" || menuButton.state == "DefineRoi")
                 return "filled"
             else
                 return "unfilled"
@@ -72,7 +74,16 @@ Rectangle {
     ProgresDot{
         id: defineRoiDot
 
-        state: menuButton.state === "MapRoi" ? "filled" : "unfilled"
+        visible: menuButton.state != "Start"
+        state: {
+            if(menuButton.state == "DefineRoi" ||
+                    menuButton.state == "MapRoi" || menuButton.state == "RobotSettings" ||
+                    menuButton.state == "SelectModality" || menuButton.state == "SetUpPaut" ||
+                    menuButton.state == "UtPreScan")
+                return "filled"
+            else
+                return "unfilled"
+        }
         name: "DEFINE<br>ROI"
         anchors.leftMargin: 87+20+108+20+108
     }
@@ -80,7 +91,16 @@ Rectangle {
     ProgresDot{
         id: mapRoiDot
 
-        state: "filled"
+        visible: menuButton.state != "Start"
+        state: {
+            if(
+                    menuButton.state == "MapRoi" || menuButton.state == "RobotSettings" ||
+                    menuButton.state == "SelectModality" || menuButton.state == "SetUpPaut" ||
+                    menuButton.state == "UtPreScan")
+                return "filled"
+            else
+                return "unfilled"
+        }
         name: "MAP<br>ROI"
         anchors.leftMargin: 87+20+108+20+108+20+108
     }
@@ -88,6 +108,15 @@ Rectangle {
     ProgresDot{
         id: robotSettingsDot
 
+        visible: menuButton.state != "Start"
+        state: {
+            if(menuButton.state == "RobotSettings" || menuButton.state == "SelectModality" ||
+                    menuButton.state == "SetUpPaut" ||
+                    menuButton.state == "UtPreScan")
+                return "filled"
+            else
+                return "unfilled"
+        }
         name: "ROBOT<br>SETTINGS"
         anchors.leftMargin: 87+20+108+20+108+20+108+20+108
     }
@@ -95,6 +124,15 @@ Rectangle {
     ProgresDot{
         id: selectModalityDot
 
+        visible: menuButton.state != "Start"
+        state: {
+            if(menuButton.state == "SelectModality" ||
+                    menuButton.state == "SetUpPaut" ||
+                    menuButton.state == "UtPreScan")
+                return "filled"
+            else
+                return "unfilled"
+        }
         name: "SELECT<br>MODALITY"
         anchors.leftMargin: 87+20+108+20+108+20+108+20+108+20+108
     }
@@ -102,18 +140,36 @@ Rectangle {
     ProgresDot{
         id: setupPoutDot
 
-        name: "SET UP<br>POUT"
+        visible: menuButton.state != "Start"
+        state: {
+            if(menuButton.state == "SetUpPaut" ||
+                    menuButton.state == "UtPreScan")
+                return "filled"
+            else
+                return "unfilled"
+        }
+        name: "SET UP<br>PAUT"
         anchors.leftMargin: 87+20+108+20+108+20+108+20+108+20+108+20+108
     }
 
     ProgresDot{
         id: utPrescanDot
+
+        visible: menuButton.state != "Start"
+        state: {
+            if(menuButton.state == "UtPreScan")
+                return "filled"
+            else
+                return "unfilled"
+        }
         name: "UT<br>PRESCAN"
         anchors.leftMargin: 87+20+108+20+108+20+108+20+108+20+108+20+108+20+108
     }
 
     ProgresDot{
         id: utScanDot
+
+        visible: menuButton.state != "Start"
         name: "UT<br>SCAN"
         anchors.leftMargin: 87+20+108+20+108+20+108+20+108+20+108+20+108+20+108+20+108
     }
@@ -121,11 +177,12 @@ Rectangle {
     ProgresDot{
         id: scanAnalysisDot
 
+        visible: menuButton.state != "Start"
         name: "SCAN<br>ANALYSIS"
         anchors.leftMargin: 87+20+108+20+108+20+108+20+108+20+108+20+108+20+108+20+108+20+108
     }
 
-    Button{
+    MainActionButton{
         id: menuButton
         anchors{
             verticalCenter: parent.verticalCenter
@@ -135,6 +192,6 @@ Rectangle {
         onStateChanged: {
             root.state = state
         }
-
     }
+
 }

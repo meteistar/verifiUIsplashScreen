@@ -6,10 +6,15 @@ Rectangle {
     property bool animStart: false
 
     anchors.fill: parent
-    color: "blue"
+
+    Image {
+        id: sampleImage
+        source: "qrc:/assets/images/static sample image.png"
+        smooth: true
+    }
 
     InstructionBlock{
-        id: instructionBlock
+        id: placementWarning
         animStart: root.animStart
     }
 

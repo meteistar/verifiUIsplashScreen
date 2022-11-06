@@ -15,9 +15,25 @@ Window {
     Rectangle{
         anchors.fill: parent
 
+        MapSurfaceProgressPage{
+            id: mapSurfaceProgressPage
+            z: bottombar.state == "MapSurface" ? 10 : 0
+            onMapSurfaceFinished: {
+                //bottombar.state = "DefineRoi"
+                bottombar.visible = true
+            }
+        }
+
         HandRobotPlacementPage{
             id: handRobotPlacementPage
             animStart: bottombar.state == "PositionRobot" ? true : false
+            z: bottombar.state == "PositionRobot" ? 10 : 0
+        }
+
+        DefineROIPage{
+            id: defineROIPage
+            animStart: bottombar.state == "DefineRoi" ? true : false
+            z: bottombar.state == "DefineRoi" ? 10 : 0
         }
 
         Image {
@@ -34,15 +50,13 @@ Window {
             }
         }
 
+
         BottomBar{
             id: bottombar
-            onStateChanged: {
-                if(state == "PositionRobot"){
-
-                }
-            }
+            z: 20
 
         }
+
 
     }
 

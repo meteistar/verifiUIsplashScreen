@@ -12,7 +12,6 @@
         <file>assets/fonts/Atkinson_Hyperlegible/Atkinson-Hyperlegible-Italic-102.ttf</file>
         <file>assets/fonts/Atkinson_Hyperlegible/Atkinson-Hyperlegible-Regular-102.ttf</file>
         <file>SplashScreen.qml</file>
-        <file>Button.qml</file>
         <file>BottomBar.qml</file>
         <file>ProgresDot.qml</file>
         <file>ProgressLabel.qml</file>
@@ -21,5 +20,11 @@
         <file>assets/images/warning.png</file>
         <file>HandRobotPlacementPage.qml</file>
         <file>LiveCameraOverlay.qml</file>
+        <file>assets/images/static sample image.png</file>
+        <file>MapSurfaceProgressPage.qml</file>
+        <file>SubProgressBox.qml</file>
+        <file>MainActionButton.qml</file>
+        <file>DefineROIPage.qml</file>
+        <file>RoiBoxDefault.qml</file>
     </qresource>
 </RCC>
