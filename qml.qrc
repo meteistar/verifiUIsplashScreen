@@ -17,5 +17,9 @@
         <file>ProgresDot.qml</file>
         <file>ProgressLabel.qml</file>
         <file>ProgressLink.qml</file>
+        <file>InstructionBlock.qml</file>
+        <file>assets/images/warning.png</file>
+        <file>HandRobotPlacementPage.qml</file>
+        <file>LiveCameraOverlay.qml</file>
     </qresource>
 </RCC>

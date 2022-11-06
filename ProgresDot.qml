@@ -8,6 +8,10 @@ Rectangle{
 
     state: "unfilled"
 
+    onStateChanged: {
+        console.log("dot icinde" + state)
+    }
+
     //TODO make it singleton
     color: "black"
     border.color: "#208DEB"
@@ -28,12 +32,13 @@ Rectangle{
     ProgressLink{
         anchors.left: root.right
     }
-    Behavior on color{
-        NumberAnimation {
-            property: "color"
-            duration: 1000
-        }
-    }
+//    Behavior on color{
+//        NumberAnimation {
+//            //target: root
+//            //property: "color"
+//            duration: 1000
+//        }
+//    }
 
     states: [
         State {

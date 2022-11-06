@@ -6,6 +6,7 @@ Rectangle {
 
     signal startClicked
 
+
     state: "Start"
 
     //TODO make it singleton
@@ -46,6 +47,7 @@ Rectangle {
     ProgresDot{
         id:positionRobotDot
 
+        visible: menuButton.state != "Start"
         state: "filled"
         name: "POSITION<br>ROBOT"
         anchors.leftMargin: 87
@@ -54,6 +56,15 @@ Rectangle {
     ProgresDot{
         id: mapSurfaceDot
 
+        state: {
+            if(menuButton.state == "DefineRoi" ||
+                    menuButton.state == "MapRoi" || menuButton.state == "RobotSettings" ||
+                    menuButton.state == "" || menuButton.state == "DefineRoi")
+                return "filled"
+            else
+                return "unfilled"
+        }
+
         name: "MAP<br>SURFACE"
         anchors.leftMargin: 87+20+108
     }
@@ -61,6 +72,7 @@ Rectangle {
     ProgresDot{
         id: defineRoiDot
 
+        state: menuButton.state === "MapRoi" ? "filled" : "unfilled"
         name: "DEFINE<br>ROI"
         anchors.leftMargin: 87+20+108+20+108
     }
@@ -68,6 +80,7 @@ Rectangle {
     ProgresDot{
         id: mapRoiDot
 
+        state: "filled"
         name: "MAP<br>ROI"
         anchors.leftMargin: 87+20+108+20+108+20+108
     }
@@ -119,9 +132,8 @@ Rectangle {
             right: parent.right
             rightMargin: 20
         }
-        onStartClicked: {
-            root.startClicked()
-            root.state = "Map Surface"
+        onStateChanged: {
+            root.state = state
         }
 
     }

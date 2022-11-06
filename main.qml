@@ -14,10 +14,12 @@ Window {
 
     Rectangle{
         anchors.fill: parent
-        Rectangle{
-            anchors.fill: parent
-            color: "red"
+
+        HandRobotPlacementPage{
+            id: handRobotPlacementPage
+            animStart: bottombar.state == "PositionRobot" ? true : false
         }
+
         Image {
             id: background_dark
             source: "qrc:/assets/images/background_dark.png"
@@ -34,12 +36,13 @@ Window {
 
         BottomBar{
             id: bottombar
-//            onStartClicked: {
-//                background_dark.opacity = 0
-//            }
+            onStateChanged: {
+                if(state == "PositionRobot"){
+
+                }
+            }
 
         }
-
 
     }
 

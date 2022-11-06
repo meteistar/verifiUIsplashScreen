@@ -41,12 +41,20 @@ Item {
           onClicked: {
               console.log("Button pressed...")
               if(root.state === "Start"){
-                  root.state = "MapSurface"
+                  root.state = "PositionRobot"
+                  console.log("[State] = Position robot")
                   startClicked()
 
+              }else if(root.state === "PositionRobot"){
+                  root.state = "MapSurface"
+                  console.log("State MapSurface")
+                  mapSurfaceClicked()
               }else if(root.state === "MapSurface"){
                   root.state = "MapRoi"
+                  console.log("State MapRoi")
                   mapSurfaceClicked()
+              }else if(root.state === "MapRoi"){
+                  root.state = "DefineRoi"
               }
 
 
@@ -82,12 +90,33 @@ Item {
     states: [
         State {
             name: "Start"
-            PropertyChanges { target: buttonText; text: "Start" }
+            PropertyChanges { target: buttonText; text: "START" }
+        },
+        State {
+            name: "PositionRobot"
+            PropertyChanges { target: buttonText; text: "MAP SURFACE" }
         },
         State {
             name: "MapSurface"
-            PropertyChanges { target: buttonText; text: "MapSurface" }
+            PropertyChanges { target: buttonText; text: "MAP ROI" }
+        },
+        State {
+            name: "DefineRoi"
+            PropertyChanges { target: buttonText; text: "DEFINE ROI" }
+        },
+        State {
+            name: "MapRoi"
+            PropertyChanges { target: buttonText; text: "ROBOT SETTINGS" }
+        },
+        State {
+            name: "SelectModality"
+            PropertyChanges { target: buttonText; text: "CVN UT PRESCAN" }
+        },
+        State {
+            name: "UtPreScan"
+            PropertyChanges { target: buttonText; text: "START SCAN" }
         }
+
     ]
 
 }
