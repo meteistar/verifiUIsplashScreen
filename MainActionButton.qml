@@ -39,22 +39,21 @@ Item {
               toprightRect.color = "#208DEB"
           }
           onClicked: {
-              console.log("Button pressed...")
+              console.log("[State] = " +state)
               if(root.state === "Start"){
                   root.state = "PositionRobot"
-                  console.log("[State] = Position robot")
-                  startClicked()
-
               }else if(root.state === "PositionRobot"){
                   root.state = "MapSurface"
-                  console.log("State MapSurface")
-                  mapSurfaceClicked()
               }else if(root.state === "MapSurface"){
-                  root.state = "MapRoi"
-                  console.log("State MapRoi")
-                  mapSurfaceClicked()
-              }else if(root.state === "MapRoi"){
                   root.state = "DefineRoi"
+              }else if(root.state === "DefineRoi"){
+                  root.state = "MapRoi"
+              }else if(root.state === "MapRoi"){
+                  root.state = "SelectModality"
+              }else if(root.state === "SelectModality"){
+                  root.state = "SetUpPaut"
+              }else if(root.state === "SetUpPaut"){
+                  root.state = "UtPreScan"
               }
 
 
@@ -98,11 +97,11 @@ Item {
         },
         State {
             name: "MapSurface"
-            PropertyChanges { target: buttonText; text: "MAP ROI" }
+            PropertyChanges { target: buttonText; text: "NO BUTTON" }
         },
         State {
             name: "DefineRoi"
-            PropertyChanges { target: buttonText; text: "DEFINE ROI" }
+            PropertyChanges { target: buttonText; text: "MAP ROI" }
         },
         State {
             name: "MapRoi"
@@ -111,6 +110,10 @@ Item {
         State {
             name: "SelectModality"
             PropertyChanges { target: buttonText; text: "CVN UT PRESCAN" }
+        },
+        State {
+            name: "SetUpPaut"
+            PropertyChanges { target: buttonText; text: "UT PRESCAN" }
         },
         State {
             name: "UtPreScan"
